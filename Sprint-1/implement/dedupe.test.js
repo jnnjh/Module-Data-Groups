@@ -32,7 +32,7 @@ describe('dedupe', () => {
     // Given an array with strings or numbers
     // When passed to the dedupe function
     // Then it should remove the duplicate values, preserving the first occurence of each element
-    test("given any array, it should return an array that has no duplicateby preserving the first occurence of each element.", () => {
+    test('given any array, it should return an array that has no duplicateby preserving the first occurence of each element.', () => {
         const currentArray = [1, 1, 2, 3, 2, 3, 3, 3, 'a', 'b', 'a', 'a'];
         expect(dedupe(currentArray)).toEqual([1, 2, 3, 'a', 'b']);
     })
