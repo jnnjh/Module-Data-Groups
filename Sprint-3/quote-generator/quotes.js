@@ -1,3 +1,24 @@
+function generateQuotes() {
+  let chosenQuote = document.getElementById('quote');
+  let author = document.getElementById('author');
+
+  chosenQuote.innerHTML = "Strive not to be a success, but rather to be of value.";
+  author.innerHTML = "- Albert Einstein";
+  document.getElementById('new-quote').addEventListener('click', () => {
+    
+
+    let randomQuote = pickFromArray(quotes);
+    
+    for(let[key, value] of Object.entries(randomQuote)){
+      if(key === "quote") chosenQuote.innerHTML = `${value}`;
+      else author.innerHTML = `- ${value}`
+    }
+
+  })
+}
+
+generateQuotes();
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
