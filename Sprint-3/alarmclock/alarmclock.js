@@ -5,18 +5,6 @@ function setAlarm() {
     let min = 0;
     let alarmSet = document.getElementById('alarmSet').value;
     const timeRemaining = document.getElementById('timeRemaining');
-
-    if(alarmSet < 10) timeRemaining.innerHTML = `Time Remaining: 00:0${alarmSet}`; 
-    else if(alarmSet < 60) timeRemaining.innerHTML = `Time Remaining: 00:${alarmSet}`;
-    else {
-        min = Math.floor(alarmSet / 60);
-        sec = alarmSet % 60;
-        if(min < 10 && sec < 10) timeRemaining.innerHTML = `Time Remaining: 0${min}:0${sec}`;
-        else if(min < 10 && sec > 10) timeRemaining.innerHTML = `Time Remaining: 0${min}:${sec}`;
-        else if(min >= 10 && sec < 10) timeRemaining.innerHTML = `Time Remaining: ${min}:0${sec}`;
-        else if(min >= 10 && sec > 10) timeRemaining.innerHTML = `Time Remaining: ${min}:${sec}`;
-    } // this whole if/else is the same as the one inside setInterval... if i don't have this, the jest test don't pass but the alarmclock works well.
-    alarmSet--
     
     const timer = setInterval(() => {
         if(alarmSet < 10) timeRemaining.innerHTML = `Time Remaining: 00:0${alarmSet}`; 
