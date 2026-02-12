@@ -1,27 +1,43 @@
 const images = [
-    "./assets/cute-cat-a.png",
-    "./assets/cute-cat-b.jpg",
-    "./assets/cute-cat-c.jpg",
+    "./assets/wei_wuxian.webp",
+    "./assets/lan_wangji.webp",
+    "./assets/jiang_cheng.webp",
+    "./assets/jin_ling.webp",
+    "./assets/lan_sizhui.webp",
 ];
 
 
 // Write your code here
 
+let img = document.getElementById('carousel-img');
+let attr = img.getAttribute('src');
+let i = 0;
+
+function setup() {
+    img.src = images[i];
+
+    forward();
+    backward();
+}
+
 function moveForward() {
-    let img = document.getElementById('carousel-img');
-    let attr = img.getAttribute('src');
-
-    for(let i = 0; i < images.length; i++){
-        console.log(i);
-        if(attr === images[i] && i !== images.length - 1) return img.src = images[i+1];
-        
-
+    if(i < images.length -1){
+        i++;
+        img.src = images[i];
+    } else {
+        i = 0;
+        img.src = images[i];
     }
 }
 
-
 function moveBackward() {
-
+    if(i > 0){
+        i--;
+        img.src = images[i];
+    } else {
+        img.src = images[images.length - 1]
+        i = images.length - 1;
+    }
 }
 
 function forward() {
@@ -36,4 +52,4 @@ function backward() {
     });
 }
 
-window.onload = forward;
+window.onload = setup;
