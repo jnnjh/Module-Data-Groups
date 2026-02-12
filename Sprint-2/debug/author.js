@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+//PREDICTION: "author" is not an array so value is not eqaul to it's property.
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +11,11 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+const authArr = Object.values(author);
+console.log(authArr); //if you wanna log it in an array.
+
+for(values of authArr){
+  console.log(values); // If you wanna log them one by one.
 }
+
+

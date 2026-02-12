@@ -25,5 +25,8 @@
     "setupFilesAfterEnv": [
       "./jest.setup.js"
     ]
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
