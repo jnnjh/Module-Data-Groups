@@ -6,9 +6,6 @@ const images = [
     "./assets/lan_sizhui.webp",
 ];
 
-
-// Write your code here
-
 let img = document.getElementById('carousel-img');
 let attr = img.getAttribute('src');
 let i = 0;
