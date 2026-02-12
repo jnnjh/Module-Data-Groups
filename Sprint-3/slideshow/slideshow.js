@@ -1,8 +1,86 @@
 const images = [
-    "./assets/cute-cat-a.png",
-    "./assets/cute-cat-b.jpg",
-    "./assets/cute-cat-c.jpg",
+    "./assets/wei_wuxian.webp",
+    "./assets/lan_wangji.webp",
+    "./assets/jiang_cheng.webp",
+    "./assets/jin_ling.webp",
+    "./assets/lan_sizhui.webp",
 ];
 
+let img = document.getElementById('carousel-img');
+let attr = img.getAttribute('src');
+let i = 0;
+let intervalId;
 
-// Write your code here
+function setup() {
+    img.src = images[i];
+
+    forward();
+    backward();
+    autoForward();
+    autoBack();
+    stopButton();
+}
+
+function moveForward() {
+    if(i < images.length -1){
+        i++;
+        img.src = images[i];
+    } else {
+        i = 0;
+        img.src = images[i];
+    }
+}
+
+function moveBackward() {
+    if(i > 0){
+        i--;
+        img.src = images[i];
+    } else {
+        img.src = images[images.length - 1]
+        i = images.length - 1;
+    }
+}
+
+function moveAutoForward() {
+    moveForward();
+}
+
+function moveAutoBack() {
+    moveBackward()
+}
+
+function stopMove() {
+    clearInterval(intervalId);
+}
+
+function forward() {
+    document.getElementById('forward-btn').addEventListener('click', () => {
+        moveForward();
+    });
+}
+
+function backward() {
+    document.getElementById('backward-btn').addEventListener('click', () => {
+        moveBackward();
+    });
+}
+
+function autoForward() {
+    document.getElementById('auto-forward').addEventListener('click', () => {
+        intervalId = setInterval(moveAutoForward, 2000);
+    })
+}
+
+function autoBack() {
+    document.getElementById('auto-back').addEventListener('click', () => {
+        intervalId = setInterval(moveAutoBack, 2000);
+    })
+}
+
+function stopButton() {
+    document.getElementById('stop').addEventListener('click', () => {
+        stopMove();
+    })
+}
+
+window.onload = setup;
