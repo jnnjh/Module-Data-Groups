@@ -12,6 +12,7 @@ const images = [
 let img = document.getElementById('carousel-img');
 let attr = img.getAttribute('src');
 let i = 0;
+let intervalId;
 
 function setup() {
     img.src = images[i];
@@ -20,6 +21,7 @@ function setup() {
     backward();
     autoForward();
     autoBack();
+    stopButton();
 }
 
 function moveForward() {
@@ -50,6 +52,10 @@ function moveAutoBack() {
     moveBackward()
 }
 
+function stopMove() {
+    clearInterval(intervalId);
+}
+
 function forward() {
     document.getElementById('forward-btn').addEventListener('click', () => {
         moveForward();
@@ -64,13 +70,19 @@ function backward() {
 
 function autoForward() {
     document.getElementById('auto-forward').addEventListener('click', () => {
-        setInterval(moveAutoForward, 2000);
+        intervalId = setInterval(moveAutoForward, 2000);
     })
 }
 
 function autoBack() {
     document.getElementById('auto-back').addEventListener('click', () => {
-        setInterval(moveAutoBack, 2000);
+        intervalId = setInterval(moveAutoBack, 2000);
+    })
+}
+
+function stopButton() {
+    document.getElementById('stop').addEventListener('click', () => {
+        stopMove();
     })
 }
 
