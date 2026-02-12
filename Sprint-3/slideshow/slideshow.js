@@ -18,6 +18,8 @@ function setup() {
 
     forward();
     backward();
+    autoForward();
+    autoBack();
 }
 
 function moveForward() {
@@ -40,6 +42,14 @@ function moveBackward() {
     }
 }
 
+function moveAutoForward() {
+    moveForward();
+}
+
+function moveAutoBack() {
+    moveBackward()
+}
+
 function forward() {
     document.getElementById('forward-btn').addEventListener('click', () => {
         moveForward();
@@ -50,6 +60,18 @@ function backward() {
     document.getElementById('backward-btn').addEventListener('click', () => {
         moveBackward();
     });
+}
+
+function autoForward() {
+    document.getElementById('auto-forward').addEventListener('click', () => {
+        setInterval(moveAutoForward, 2000);
+    })
+}
+
+function autoBack() {
+    document.getElementById('auto-back').addEventListener('click', () => {
+        setInterval(moveAutoBack, 2000);
+    })
 }
 
 window.onload = setup;
